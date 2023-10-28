@@ -1,8 +1,32 @@
 @import ./variables.sass
 
-.navbar .navbar-menu
-  box-shadow: none !important
+body
+  font-family: Montserrat
+  
+.navbar
+  position: fixed
+  width: 100%
+  background-color: black
+  min-height: 4rem
 
+.navbar-start
+  background-color: black
+
+.navbar-menu
+  box-shadow: none !important
+  justify-content: flex-end
+  font-weight: 600
+
+.navbar-item,.navbar-burger
+  color: white
+
+.navbar-item:hover
+  background-color: black !important
+  color: $color-primary !important
+
+.navbar-brand, .navbar-item.logo
+  padding: 0 1rem
+    
 .content .taglist
   list-style: none
   margin-bottom: 0
@@ -61,15 +85,10 @@
 .margin-top-0
   margin-top: 0 !important
 
-.navbar-item .icon
-  color: $primary
-// Override for use of svg's from https://simpleicons.org/
 .icon svg
   width: 1.5rem
   height: 1.5rem
   fill: currentColor
-.navbar-brand .navbar-item.logo
-  padding: 0 1rem
 footer.footer
   padding: 3rem 0rem 0rem
   background-color: transparent

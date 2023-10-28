@@ -19,24 +19,24 @@ const TemplateWrapper = ({ children }) => {
         <link
           rel="apple-touch-icon"
           sizes="180x180"
-          href={`${withPrefix("/")}img/apple-touch-icon.png`}
+          href={`${withPrefix("/")}img/favicon_180x189.svg`}
         />
         <link
           rel="icon"
-          type="image/png"
-          href={`${withPrefix("/")}img/favicon-32x32.png`}
-          sizes="32x32"
+          type="image/svg"
+          href={`${withPrefix("/")}img/favicon_32x23.svg`}
+          sizes="32x23"
         />
         <link
           rel="icon"
-          type="image/png"
-          href={`${withPrefix("/")}img/favicon-16x16.png`}
+          type="image/svg"
+          href={`${withPrefix("/")}img/favicon_16x17.svg`}
           sizes="16x16"
         />
 
         <link
           rel="mask-icon"
-          href={`${withPrefix("/")}img/safari-pinned-tab.svg`}
+          href={`${withPrefix("/")}img/favicon_180x189.svg`}
           color="#ff4400"
         />
         <meta name="theme-color" content="#fff" />
