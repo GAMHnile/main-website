@@ -60,6 +60,26 @@ collections:
                   { label: Description, name: description, widget: text },
                 ],
             }
+            - {
+              label: Services,
+              name: services,
+              widget: object,
+              fields:
+                [
+                  { label: Title, name: title, widget: string },
+                  { label: Description, name: description, widget: text },
+                  {
+                    label: Blurbs,
+                    name: blurbs,
+                    widget: list,
+                    fields:
+                      [
+                        { label: Heading, name: heading, widget: string },
+                        { label: Description, name: description, widget: text },
+                      ],
+                  },
+                ],
+            }
           - { label: Description, name: description, widget: string }
           - {
               label: Intro,
@@ -133,6 +153,7 @@ collections:
             }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
+          - { label: Image, name: image, widget: image }
       - file: "src/pages/products/index.md"
         label: "Products Page"
         name: "products"

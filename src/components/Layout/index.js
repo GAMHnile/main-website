@@ -1,10 +1,10 @@
 import * as React from "react";
 import { Helmet } from "react-helmet";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import "../style/bulma-style.sass";
-import "../style/custom-style.sass";
-import useSiteMetadata from "./SiteMetadata";
+import Footer from "../Footer";
+import Navbar from "../Navbar";
+import "../../style/bulma-style.sass";
+import "../../style/custom-style.sass";
+import useSiteMetadata from "../SiteMetadata";
 import { withPrefix } from "gatsby";
 
 const TemplateWrapper = ({ children }) => {
@@ -18,25 +18,25 @@ const TemplateWrapper = ({ children }) => {
 
         <link
           rel="apple-touch-icon"
-          sizes="180x180"
-          href={`${withPrefix("/")}img/apple-touch-icon.png`}
+          sizes="180x157"
+          href={`${withPrefix("/")}img/favicon_180x157.svg`}
         />
         <link
           rel="icon"
-          type="image/png"
-          href={`${withPrefix("/")}img/favicon-32x32.png`}
-          sizes="32x32"
+          type="image/svg"
+          href={`${withPrefix("/")}img/favicon_32x28.svg`}
+          sizes="32x28"
         />
         <link
           rel="icon"
-          type="image/png"
-          href={`${withPrefix("/")}img/favicon-16x16.png`}
-          sizes="16x16"
+          type="image/svg"
+          href={`${withPrefix("/")}img/favicon_16x9.svg`}
+          sizes="16x9"
         />
 
         <link
           rel="mask-icon"
-          href={`${withPrefix("/")}img/safari-pinned-tab.svg`}
+          href={`${withPrefix("/")}img/favicon_180x157.svg`}
           color="#ff4400"
         />
         <meta name="theme-color" content="#fff" />
