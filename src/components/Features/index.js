@@ -1,23 +1,26 @@
 import * as React from "react";
 import PropTypes from "prop-types";
-import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
+import PreviewCompatibleImage from "../PreviewCompatibleImage";
+import { Link } from "gatsby";
 
 const FeatureGrid = ({ gridItems }) => (
   <div className="columns is-multiline">
     {gridItems.map((item) => (
-      <div key={item.text} className="column is-6">
-        <section className="section">
+      <div
+        key={item.text}
+        className="is-parent column is-6"
+        style={{ marginBottom: "48px" }}
+      >
+        <section
+          className={`blog-list-item tile is-child products-card notification`}
+        >
           <div className="has-text-centered">
-            <div
-              style={{
-                width: "240px",
-                display: "inline-block",
-              }}
-            >
-              <PreviewCompatibleImage imageInfo={item} />
-            </div>
+            <PreviewCompatibleImage imageInfo={item} />
           </div>
           <p>{item.text}</p>
+          <Link className="button" to={"https://google.com"}>
+            View product →
+          </Link>
         </section>
       </div>
     ))}
