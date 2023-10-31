@@ -5,13 +5,11 @@ import PreviewCompatibleImage from "../PreviewCompatibleImage";
 
 const BlogRollTemplate = (props) => {
   const { edges: posts } = props.data.allMarkdownRemark;
-  const pathname = window.location.pathname;
-  const latestStories = pathname === "/" ? posts.slice(0, 2) : posts;
 
   return (
     <div className="columns is-multiline">
       {posts &&
-        latestStories.map(({ node: post }) => (
+        posts.map(({ node: post }) => (
           <div className="is-parent column is-6" key={post.id}>
             <article
               className={`blog-list-item tile is-child card notification`}
@@ -20,6 +18,7 @@ const BlogRollTemplate = (props) => {
                 {post?.frontmatter?.featuredimage && (
                   <div className="featured-thumbnail">
                     <PreviewCompatibleImage
+                      blog
                       imageInfo={{
                         image: post.frontmatter.featuredimage,
                         alt: `featured image thumbnail for post ${post.frontmatter.title}`,

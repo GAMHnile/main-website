@@ -36,7 +36,7 @@ export default class Index extends React.Component {
   render() {
     return (
       <Layout>
-        <section className="section" style={{ paddingTop: "7rem" }}>
+        <section className="section" style={{ paddingTop: "8rem" }}>
           <div className="container">
             <div className="content">
               <h1
@@ -105,7 +105,11 @@ export default class Index extends React.Component {
                   </div>
                 </div>
                 <div className="field">
-                  <button className="contact__button is-link" type="submit">
+                  <button
+                    className="cta cta-blue is-link"
+                    type="submit"
+                    style={{ paddingBlock: "8px", marginTop: "5px" }}
+                  >
                     Send
                   </button>
                 </div>

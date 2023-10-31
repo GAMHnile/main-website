@@ -9,12 +9,12 @@ const Services = ({ services }) => (
       style={{
         alignItems: "center",
         display: "flex",
-        justifyContent: "center",
+        justifyContent: "space-between",
       }}
     >
       {services.blurbs.map((service, idx) => {
         return (
-          <div className="column is-2 card" key={service.heading + idx}>
+          <div className="column is-1 card" key={service.heading + idx}>
             <h3>{service.heading}</h3>
             <p className="subtitle card-content">{service.description}</p>
           </div>

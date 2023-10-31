@@ -2,11 +2,12 @@ import * as React from "react";
 import PropTypes from "prop-types";
 import { GatsbyImage } from "gatsby-plugin-image";
 
-const PreviewCompatibleImage = ({ imageInfo }) => {
+const PreviewCompatibleImage = ({ imageInfo, blog }) => {
   const imageStyle = {
     borderRadius: "5px",
-    height: "300px",
-    width: "350px",
+    height: !blog && "300px",
+    width: !blog && "400px",
+    objectFit: "contain",
   };
 
   const { alt = "", childImageSharp, image } = imageInfo;
@@ -26,6 +27,7 @@ const PreviewCompatibleImage = ({ imageInfo }) => {
         image={childImageSharp.gatsbyImageData}
         style={imageStyle}
         alt={alt}
+        objectFit="contain"
       />
     );
     // for Netlify CMS

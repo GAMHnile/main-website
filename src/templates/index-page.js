@@ -1,21 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { navigate, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import Layout from "../components/Layout";
-import Features from "../components/Features";
-import BlogRoll from "../components/BlogRoll";
 import FullWidthImage from "../components/FullWidthImage";
 import Services from "../components/Services";
+import Products from "../components/Products";
 
 // eslint-disable-next-line
 export const IndexPageTemplate = ({
   image,
   title,
-  heading,
   mainpitch,
   services,
-  description,
   intro,
 }) => {
   const heroImage = getImage(image) || image;
@@ -30,7 +27,7 @@ export const IndexPageTemplate = ({
               <div className="content pt-48">
                 <p className="title align-center">{mainpitch.title}</p>
                 <div className="tile">
-                  <p className="subtitle services-card-content">
+                  <p className="subtitle card-content">
                     {mainpitch.description}
                   </p>
                 </div>
@@ -40,41 +37,7 @@ export const IndexPageTemplate = ({
                 <Services services={services} />
               )}
 
-              {/* Products */}
-              {/* <div
-                    className="content"
-                  >
-                    <p className="title align-center">Products</p>
-                    <Features gridItems={intro.blurbs} />
-                  </div>
-                  <div className="columns">
-                    <div className="column is-12 has-text-centered">
-                      <Link className="btn" to="/products">
-                        See all products
-                      </Link>
-                    </div>
-                  </div> */}
-
-              <div className="content pt-80">
-                <div
-                  className="column is-12"
-                  style={{
-                    alignItems: "center",
-                    display: "flex",
-                    justifyContent: "center",
-                    flexDirection: "column",
-                  }}
-                >
-                  <p className="title align-center">Latest stories</p>
-                  <BlogRoll />
-                  <button
-                    className="cta cta-blue"
-                    onClick={() => navigate("/blog")}
-                  >
-                    Read more
-                  </button>
-                </div>
-              </div>
+              <Products blurbs={intro.blurbs} />
             </div>
           </div>
         </div>

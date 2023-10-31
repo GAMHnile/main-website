@@ -4,25 +4,11 @@ import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import Layout from "../components/Layout";
 import Features from "../components/Features";
-import Testimonials from "../components/Testimonials";
-import Pricing from "../components/Pricing";
-import PreviewCompatibleImage from "../components/PreviewCompatibleImage";
 import FullWidthImage from "../components/FullWidthImage";
 
 // eslint-disable-next-line
-export const ProductPageTemplate = ({
-  image,
-  title,
-  heading,
-  description,
-  intro,
-  main,
-  testimonials,
-  fullImage,
-  pricing,
-}) => {
+export const ProductPageTemplate = ({ image, title, intro }) => {
   const heroImage = getImage(image) || image;
-  const fullWidthImage = getImage(fullImage) || fullImage;
 
   return (
     <div className="content">
@@ -114,6 +100,7 @@ export const productPageQuery = graphql`
               }
             }
             text
+            link
           }
           heading
           description
