@@ -10,7 +10,7 @@ const FeatureGrid = ({ gridItems }) => {
   return (
     <div className="columns is-multiline">
       {products.map((item) => (
-        <div key={item.text} className="is-parent column is-1">
+        <div key={item.text} className="is-parent column">
           <section
             className={`blog-list-item tile is-child products-card notification`}
           >
