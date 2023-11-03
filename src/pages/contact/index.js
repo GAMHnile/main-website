@@ -43,7 +43,7 @@ export default class Index extends React.Component {
                 className="title is-size-3 has-text-weight-bold is-bold-light has-text-centered"
                 style={{ marginBottom: "40px" }}
               >
-                Contact
+                Contact Us
               </h1>
               <form
                 name="contact"

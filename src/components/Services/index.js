@@ -1,8 +1,8 @@
 import * as React from "react";
 
 const Services = ({ services }) => (
-  <div className="content pt-80">
-    <p className="title align-center">{services.title}</p>
+  <div className="content section-mt">
+    <p className="title has-text-centered">{services.title}</p>
     <p>{services.description}</p>
     <div
       className="columns is-multiline"

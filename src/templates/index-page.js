@@ -19,13 +19,18 @@ export const IndexPageTemplate = ({
 
   return (
     <div>
-      <FullWidthImage img={heroImage} title={title} cta height={"700px"} />
+      <FullWidthImage
+        img={heroImage}
+        title={title}
+        cta
+        height={"calc(100vh - 4rem)"}
+      />
       <section className="section section--gradient">
         <div className="container">
           <div className="column is-10 is-offset-1">
             <div className="content">
-              <div className="content pt-48">
-                <p className="title align-center">{mainpitch.title}</p>
+              <div className="content" style={{ marginTop: "48px" }}>
+                <p className="title has-text-centered">{mainpitch.title}</p>
                 <div className="tile">
                   <p className="subtitle card-content">
                     {mainpitch.description}

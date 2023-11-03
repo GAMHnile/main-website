@@ -3,11 +3,11 @@ import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import Layout from "../components/Layout";
-import Features from "../components/Features";
 import FullWidthImage from "../components/FullWidthImage";
+import BlogRoll from "../components/BlogRoll";
 
 // eslint-disable-next-line
-export const ProductPageTemplate = ({ image, title, intro }) => {
+export const BlogPageTemplate = ({ image, title }) => {
   const heroImage = getImage(image) || image;
 
   return (
@@ -16,7 +16,7 @@ export const ProductPageTemplate = ({ image, title, intro }) => {
       <section className="section section--gradient">
         <div className="container">
           <div className="column is-10 is-offset-1">
-            <Features gridItems={intro.blurbs} />
+            <BlogRoll />
           </div>
         </div>
       </section>
@@ -24,29 +24,22 @@ export const ProductPageTemplate = ({ image, title, intro }) => {
   );
 };
 
-ProductPageTemplate.propTypes = {
+BlogPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
 };
 
-const ProductPage = ({ data }) => {
+const BlogPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark;
 
   return (
     <Layout>
-      <ProductPageTemplate
-        image={frontmatter.image}
-        title={frontmatter.title}
-        intro={frontmatter.intro}
-      />
+      <BlogPageTemplate image={frontmatter.image} title={frontmatter.title} />
     </Layout>
   );
 };
 
-ProductPage.propTypes = {
+BlogPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
@@ -54,7 +47,7 @@ ProductPage.propTypes = {
   }),
 };
 
-export default ProductPage;
+export default BlogPage;
 
 export const productPageQuery = graphql`
   query ProductPage($id: String!) {
@@ -64,17 +57,6 @@ export const productPageQuery = graphql`
         image {
           childImageSharp {
             gatsbyImageData(quality: 100, layout: FULL_WIDTH)
-          }
-        }
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                gatsbyImageData(width: 240, quality: 64, layout: CONSTRAINED)
-              }
-            }
-            text
-            link
           }
         }
       }

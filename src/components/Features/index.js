@@ -9,15 +9,11 @@ const FeatureGrid = ({ gridItems }) => {
   const products = pathname === "/" ? gridItems.slice(0, 2) : gridItems;
 
   return (
-    <div className="columns is-multiline">
+    <div className="columns is-multiline justify-center">
       {products.map((item) => (
-        <div key={item.text} className="is-parent column">
-          <section
-            className={`blog-list-item tile is-child products-card notification`}
-          >
-            <div className="has-text-centered">
-              <PreviewCompatibleImage imageInfo={item} />
-            </div>
+        <div key={item.text} className="is-parent is-6 column">
+          <section className={`blog-list-item tile is-child products-card`}>
+            <PreviewCompatibleImage imageInfo={item} />
             <p>{item.text}</p>
             <Link className="button" to={item.link}>
               View product →
