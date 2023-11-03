@@ -4,7 +4,8 @@ import PreviewCompatibleImage from "../PreviewCompatibleImage";
 import { Link } from "gatsby";
 
 const FeatureGrid = ({ gridItems }) => {
-  const pathname = window.location.pathname;
+  const isBrowser = typeof window !== "undefined";
+  const pathname = isBrowser ? window.location.pathname : "";
   const products = pathname === "/" ? gridItems.slice(0, 2) : gridItems;
 
   return (
