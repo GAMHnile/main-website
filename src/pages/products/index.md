@@ -6,6 +6,7 @@ image: /img/hero-2.webp
 intro:
   blurbs:
     - image: /img/hero-2.webp
+      title: Ajo
       text: >
         We sell green and roasted coffee beans that are sourced directly from
         independent farmers and farm cooperatives. We’re proud to offer a
@@ -14,6 +15,7 @@ intro:
         availability.
       link: "#"
     - image: /img/hero-2.webp
+      title: Ajo
       text: >
         We offer a small, but carefully curated selection of brewing gear and
         tools for every taste and experience level. No matter if you roast your
@@ -21,6 +23,7 @@ intro:
         to fall in love with in our shop.
       link: "#"
     - image: /img/hero-2.webp
+      title: Ajo
       text: >
         Love a great cup of coffee, but never knew how to make one? Bought a
         fancy new Chemex but have no clue how to use it? Don't worry, we’re here

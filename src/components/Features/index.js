@@ -14,6 +14,7 @@ const FeatureGrid = ({ gridItems }) => {
         <div key={item.text} className="is-parent is-6 column">
           <section className={`blog-list-item tile is-child products-card`}>
             <PreviewCompatibleImage imageInfo={item} />
+            <h4>{item.title}</h4>
             <p>{item.text}</p>
             <Link className="button" to={item.link}>
               View product →
