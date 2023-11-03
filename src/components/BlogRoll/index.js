@@ -7,16 +7,14 @@ const BlogRollTemplate = (props) => {
   const { edges: posts } = props.data.allMarkdownRemark;
 
   return (
-    <div className="columns is-multiline">
+    <div className="columns is-multiline justify-center">
       {posts &&
         posts.map(({ node: post }) => (
           <div className="is-parent column is-6" key={post.id}>
-            <article
-              className={`blog-list-item tile is-child card notification`}
-            >
-              <header>
+            <article className={`blog-list-item tile is-child blog-card`}>
+              <header className="blog-header">
                 {post?.frontmatter?.featuredimage && (
-                  <div className="featured-thumbnail">
+                  <div>
                     <PreviewCompatibleImage
                       blog
                       imageInfo={{
@@ -32,13 +30,13 @@ const BlogRollTemplate = (props) => {
                     />
                   </div>
                 )}
-                <div>
-                  <h3>{post.frontmatter.title}</h3>
-                  <p className="title" style={{ fontSize: "15px" }}>
-                    {post.frontmatter.date}
-                  </p>
-                </div>
               </header>
+              <div>
+                <h3>{post.frontmatter.title}</h3>
+                <p className="title" style={{ fontSize: "15px" }}>
+                  {post.frontmatter.date}
+                </p>
+              </div>
               <p>
                 {post.excerpt}
                 <br />
@@ -73,7 +71,7 @@ export default function BlogRoll() {
           ) {
             edges {
               node {
-                excerpt(pruneLength: 400)
+                excerpt(pruneLength: 100)
                 id
                 fields {
                   slug

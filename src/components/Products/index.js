@@ -4,16 +4,15 @@ import { navigate } from "gatsby";
 
 const Products = ({ blurbs }) => (
   <div
-    className="column is-12"
+    className="column is-12 section-mt"
     style={{
       alignItems: "center",
       display: "flex",
       justifyContent: "center",
       flexDirection: "column",
-      marginTop: "104px",
     }}
   >
-    <p className="title align-center">Products</p>
+    <p className="title has-text-centered">Products</p>
     <Features gridItems={blurbs} />
     <button className="cta cta-blue" onClick={() => navigate("/products")}>
       See all products

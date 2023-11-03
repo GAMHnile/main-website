@@ -3,20 +3,13 @@ import PropTypes from "prop-types";
 import { GatsbyImage } from "gatsby-plugin-image";
 
 const PreviewCompatibleImage = ({ imageInfo, blog }) => {
-  const imageStyle = {
-    borderRadius: "5px",
-    height: !blog && "300px",
-    width: !blog && "400px",
-    objectFit: "contain",
-  };
-
   const { alt = "", childImageSharp, image } = imageInfo;
 
   if (!!image && !!image.childImageSharp) {
     return (
       <GatsbyImage
+        className="card-image"
         image={image.childImageSharp.gatsbyImageData}
-        style={imageStyle}
         alt={alt}
         objectFit="contain"
       />
@@ -25,14 +18,14 @@ const PreviewCompatibleImage = ({ imageInfo, blog }) => {
     return (
       <GatsbyImage
         image={childImageSharp.gatsbyImageData}
-        style={imageStyle}
+        className="card-image"
         alt={alt}
         objectFit="contain"
       />
     );
     // for Netlify CMS
   } else if (image) {
-    return <img src={image} style={imageStyle} alt={alt} />;
+    return <img src={image} className="card-image" alt={alt} />;
   } else {
     return null;
   }
