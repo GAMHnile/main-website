@@ -89,7 +89,7 @@ collections:
               widget: "hidden",
               default: "about-page",
             }
-          - { label: Image, name: image, widget: image },
+          - { label: Image, name: image, widget: image }
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Body", name: "body", widget: "markdown" }
       - file: "src/pages/products/index.md"
