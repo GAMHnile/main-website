@@ -14,7 +14,7 @@ mainpitch:
     partner; we're your pathway to success.
 intro:
   blurbs:
-    - image: https://img.freepik.com/free-vector/abstract-grunge-style-coming-soon-with-black-splatter_1017-26690.jpg
+    - image: /img/coming-soon.webp
       title: AjoSave
       text: Our innovative software is designed to modernize and automate the
         traditional "Esusu" or "Ajo" savings process. With our platform,
