@@ -2,7 +2,7 @@
 templateKey: blog-post
 title: "Introducing AjoSave: Pioneering a Revolution in Savings"
 date: 2023-11-04T15:04:10.000Z
-description: Modernizing Traditional Savings with Automation
+description: Modernizing Traditional Savings with Automation!
 featuredpost: false
 featuredimage: /img/coming-soon.webp
 tags:
