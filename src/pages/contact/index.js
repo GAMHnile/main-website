@@ -1,5 +1,4 @@
 import * as React from "react";
-import { navigate } from "gatsby-link";
 import Layout from "../../components/Layout";
 import axios from "axios";
 

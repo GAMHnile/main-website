@@ -2,14 +2,11 @@ require("dotenv").config();
 const {
   GATSBY_MAILGUN_API_KEY,
   GATSBY_MAILGUN_DOMAIN,
-  GATSBY_MAILGUN_URL,
   GATSBY_TO_EMAIL_ADDRESS,
-  GATSBY_FROM_EMAIL_ADDRESS,
 } = process.env;
 const mailgun = require("mailgun-js")({
   apiKey: GATSBY_MAILGUN_API_KEY,
   domain: GATSBY_MAILGUN_DOMAIN,
-  //   url: MAILGUN_URL,
 });
 
 exports.handler = async (event) => {
@@ -22,21 +19,22 @@ exports.handler = async (event) => {
   }
 
   const data = JSON.parse(event.body);
-  if (!data.message || !data.name || !data.email) {
-    return { statusCode: 422, body: "Name, email, and message are required." };
+  if (!data?.message || !data?.name || !data?.email) {
+    return { statusCode: 422, body: "Name, email, or message is required." };
   }
-
+  const { message, email, name } = data;
   const mailgunData = {
-    from: GATSBY_FROM_EMAIL_ADDRESS,
+    from: email,
     to: GATSBY_TO_EMAIL_ADDRESS,
-    subject: `New message from ${data.name}`,
-    text: `Name: ${data.email}\nEmail: ${data.contactEmail}\nMessage: ${data.message}`,
+    subject: `New message from ${name}`,
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
   };
 
   return mailgun
     .messages()
     .send(mailgunData)
     .then(() => ({
+      status: "success",
       statusCode: 200,
       body: "Your message was sent successfully! We'll be in touch.",
     }))
