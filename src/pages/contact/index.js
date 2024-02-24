@@ -1,36 +1,39 @@
 import * as React from "react";
 import { navigate } from "gatsby-link";
 import Layout from "../../components/Layout";
-
-function encode(data) {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-    .join("&");
-}
+import axios from "axios";
 
 export default class Index extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { isValidated: false };
+    this.state = {
+      messageSuccess: false,
+      messageError: false,
+      name: "",
+      email: "",
+      message: "",
+    };
   }
 
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = (e) => {
+  handleSubmit = async (e) => {
     e.preventDefault();
-    const form = e.target;
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": form.getAttribute("name"),
-        ...this.state,
-      }),
-    })
-      .then(() => navigate(form.getAttribute("action")))
-      .catch((error) => alert(error));
+    const response = await axios.post("/.netlify/functions/contact", {
+      ...this.state,
+    });
+
+    if (response.status === 200) {
+      this.setState({ name: "", email: "", message: "", messageSuccess: true });
+    } else {
+      this.setState({ messageError: true });
+    }
+
+    setTimeout(() => {
+      this.setState({ messageSuccess: false, messageError: false });
+    }, 5000);
   };
 
   render() {
@@ -52,14 +55,6 @@ export default class Index extends React.Component {
                 data-netlify-honeypot="bot-field"
                 onSubmit={this.handleSubmit}
               >
-                {/* The `form-name` hidden field is required to support form submissions without JavaScript */}
-                <input type="hidden" name="form-name" value="contact" />
-                <div hidden>
-                  <label>
-                    Don’t fill this out:{" "}
-                    <input name="bot-field" onChange={this.handleChange} />
-                  </label>
-                </div>
                 <div className="field">
                   <label className="label" htmlFor={"name"}>
                     Your name
@@ -72,6 +67,7 @@ export default class Index extends React.Component {
                       onChange={this.handleChange}
                       id={"name"}
                       required={true}
+                      value={this.state.name}
                     />
                   </div>
                 </div>
@@ -87,6 +83,7 @@ export default class Index extends React.Component {
                       onChange={this.handleChange}
                       id={"email"}
                       required={true}
+                      value={this.state.email}
                     />
                   </div>
                 </div>
@@ -101,6 +98,7 @@ export default class Index extends React.Component {
                       onChange={this.handleChange}
                       id={"message"}
                       required={true}
+                      value={this.state.message}
                     />
                   </div>
                 </div>
@@ -113,6 +111,16 @@ export default class Index extends React.Component {
                     Send
                   </button>
                 </div>
+
+                {this.state.messageSuccess ? (
+                  <p className="success-msg">
+                    Your message was sent successfully! We'll be in touch.
+                  </p>
+                ) : this.state.messageError ? (
+                  <p className="error-msg">
+                    An error occured while sending message, please try again.
+                  </p>
+                ) : null}
               </form>
             </div>
           </div>
