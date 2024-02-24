@@ -9,7 +9,11 @@ const Footer = () => {
   return (
     <footer className="footer has-background-black has-text-white-ter">
       <div className="content has-text-centered">
-        <img src={logo} alt="Kaldi" style={{ width: "20em", height: "12em" }} />
+        <img
+          src={logo}
+          alt="GAMHnile"
+          style={{ width: "20em", height: "12em" }}
+        />
       </div>
       <div className="content has-text-centered has-background-black has-text-white-ter columns">
         <div className="footer-content">
